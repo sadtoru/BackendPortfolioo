@@ -14,15 +14,15 @@ public class dtoHys {
     @NotBlank
     private int porcentaje;
 
-    private String color;
+    private String iconSkill;
 
     public dtoHys() {
     }
 
-    public dtoHys(String nombre, int porcentaje, String color) {
+    public dtoHys(String nombre, int porcentaje, String iconSkill) {
         this.nombre = nombre;
         this.porcentaje = porcentaje;
-        this.color = color;
+        this.iconSkill = iconSkill;
     }
 
     public String getNombre() {
@@ -41,11 +41,11 @@ public class dtoHys {
         this.porcentaje = porcentaje;
     }
 
-    public String getColor() {
-        return color;
+    public String getIconSkill() {
+        return iconSkill;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setIconSkill(String iconSkill) {
+        this.iconSkill = iconSkill;
     }
 }
