@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/proyectos")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://portfolio-daia.web.app")
 public class CProyecto {
     @Autowired
     SProyecto sProyecto;

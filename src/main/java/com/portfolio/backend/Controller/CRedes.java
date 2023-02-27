@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/redes")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://portfolio-daia.web.app")
 public class CRedes {
 
     @Autowired

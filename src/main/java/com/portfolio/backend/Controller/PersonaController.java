@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/personas")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://portfolio-daia.web.app")
 public class PersonaController {
     @Autowired
     ImpPersonaService personaService;
@@ -38,31 +38,31 @@ public class PersonaController {
         return new ResponseEntity(persona, HttpStatus.OK);
     }
 
-    /*@DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id){
-        if(!sEducacion.existsById(id)){
+        if(!personaService.existsById(id)){
             return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
         }
-        sEducacion.delete(id);
+        personaService.delete(id);
         return new ResponseEntity(new Mensaje("Educacion eliminada"), HttpStatus.OK);
-    }*/
+    }
 
-    /*@PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody dtoEducacion dtoeducacion){
-        if(StringUtils.isBlank(dtoeducacion.getNombreE())){
+    @PostMapping("/create")
+    public ResponseEntity<?> create(@RequestBody dtoPersona dtopersona){
+        if(StringUtils.isBlank(dtopersona.getNombre())){
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if(sEducacion.existsByNombreE(dtoeducacion.getNombreE())){
+        if(personaService.existsByNombre(dtopersona.getNombre())){
             return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
         }
 
-        Educacion educacion = new Educacion(
-                dtoeducacion.getNombreE(), dtoeducacion.getDescripcionE(), dtoeducacion.getFechaE()
+        Persona persona = new Persona(
+                dtopersona.getNombre(), dtopersona.getDescripcion(), dtopersona.getApellido(), dtopersona.getImg()
         );
-        sEducacion.save(educacion);
-        return new ResponseEntity(new Mensaje("Educacion creada"), HttpStatus.OK);
+        personaService.save(persona);
+        return new ResponseEntity(new Mensaje("Persona creada"), HttpStatus.OK);
 
-    }*/
+    }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoPersona dtopersona){
